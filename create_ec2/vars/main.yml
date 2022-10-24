@@ -1,0 +1,8 @@
+---
+# vars file for create_ec2
+keyname: xxxx
+region: xxxx
+accesskey: xxxx
+secretkey: xxxx
+instanceid: xxxx
+

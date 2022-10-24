@@ -1,0 +1,31 @@
+---
+ - name: create_ec2
+   ec2: 
+     key_name: "{{ keyname }}"
+     instance_type: t2.micro
+     image: ami-0fa4eaef3f3961890
+     wait: yes
+     count: 1
+     vpc_subnet_id: subnet-00ba5ceeb02e3c88e
+     assign_public_ip: yes
+     region: "{{ region }}"
+     aws_access_key: "{{ accesskey }}"
+     aws_secret_key: "{{ secretkey }}"
+
+ - name: Ensure tags are present on a resource
+   ec2_tag:
+    region: "{{ region }}"
+    resource: "{{ instanceid }}"
+    state: present
+    tags:
+      Name: ubervol
+      env: prod
+    aws_access_key: "{{ accesskey }}"
+    aws_secret_key: "{{ secretkey }}"
+
+ - name: Terminate instances that were previously created
+   ec2:
+    state: absent
+    instance_ids: "{{ instanceid }}"
+
+  
