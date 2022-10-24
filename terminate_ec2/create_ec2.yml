@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  vars: 
+    - terminateec2: terminateec2
+  roles:
+    - role: create_ec2
+      when: createec2 is defined and createec2 == ec2instance
+    - role: terminate_ec2
+      when: terminateec2 is defined and terminateec2 == ec2terminate
+
+
