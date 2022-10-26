@@ -1,0 +1,8 @@
+---
+# vars file for ec2-ami
+ instanceid: xxxx
+ keyname: xxxxx
+ region: xxxx
+ accesskey: xxxx
+ secretkey: xxxx
+
