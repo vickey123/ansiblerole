@@ -1,0 +1,18 @@
+
+# tasks file for ec2-ami
+---
+- name: Create ami
+  ec2:
+    instance_id: "{{ instanceid }}"
+    wait: yes
+    key_name: "{{ keyname }}"
+    instance_type: t2.micro
+    image: ami-0fa4eaef3f3961890
+    count: 1
+    vpc_subnet_id: subnet-00ba5ceeb02e3c88e
+    assign_public_ip: yes
+    region: "{{ region }}"
+    aws_access_key: "{{ accesskey }}"
+    aws_secret_key: "{{ secretkey }}"
+
+     

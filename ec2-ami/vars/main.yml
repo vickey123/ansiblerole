@@ -1,0 +1,8 @@
+---
+# vars file for ec2-ami
+ instanceid: i-0b9ecaf61fdb119e4
+ keyname: keypair2
+ region: us-east-1
+ accesskey: AKIAU4VTQ6ZEI7DDO5HA
+ secretkey: 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
+
