@@ -1,11 +1,25 @@
 ---
+ - name: gather instance facts 
+   ec2_instance_info:
+     filters:
+      "tag:project": test
+     region: "{{ usregion }}"
+   register: ec2_output
+
+ - name: Debug statement
+   debug:
+     msg: "{{ ec2_output }}" 
+ 
+ - name: Get list of instances needs to be terminated
+   set_fact:
+     instancelist: "{{ec2_output.instances | map(attribute='instance_id') | list }}"
+
 # tasks file for terminate_ec2
  - name: Terminate instances that were previously created
    ec2:
     state: absent
-    instance_ids: "{{ instanceid }}"
-    region: "{{ region }}"
-    aws_access_key: "{{ accesskey }}"
-    aws_secret_key: "{{ secretkey }}"
+    instance_ids: "{{ item }}"
+    region: "{{ usregion }}"
+   with_items: "{{ instancelist }}"
 
 

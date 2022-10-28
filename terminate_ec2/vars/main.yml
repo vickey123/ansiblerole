@@ -1,7 +1,7 @@
 ---
 # vars file for terminate_ec2
  keyname: xxxx
- region: xxxx
+ usregion: us-east-1
  accesskey: xxxx
  secretkey: xxxx
  instanceid: xxxx 

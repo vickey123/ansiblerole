@@ -1,0 +1,5 @@
+---
+# vars file for cf_role
+keyname: keypair2
+region: us-east-1
+

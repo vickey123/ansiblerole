@@ -1,0 +1,25 @@
+---
+ #- name: create_ec2
+   #ec2: 
+     #key_name: "{{ keyname }}"
+     #instance_type: t2.micro
+     #image: ami-0fa4eaef3f3961890
+     #wait: yes
+     #count: 2
+     #vpc_subnet_id: subnet-00ba5ceeb02e3c88e
+     #assign_public_ip: yes
+     #region: "{{ region }}"
+     #instance_tags:
+       #project: test
+
+ - name: create a cloudformation stack
+   cloudformation:
+    stack_name: "ansible-cloudformation"
+    state: "present"
+    region: "{{ region }}"
+    disable_rollback: true
+    template: cloudformationlambda.yaml
+    tags:
+      Stack: "ansible-cloudformation"
+
+   
