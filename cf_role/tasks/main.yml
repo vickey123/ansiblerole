@@ -1,6 +1,9 @@
 ---
+ - name: install boto
+   pip: 
+    - boto
  - name: create_ec2
-   ec2: 
+   local_action: ec2 
      key_name: "{{ keyname }}"
      instance_type: t2.micro
      image: ami-0fa4eaef3f3961890
