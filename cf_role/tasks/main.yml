@@ -1,7 +1,4 @@
 ---
- - name: install boto
-   pip: 
-    - boto
  - name: create_ec2
    ec2:
      key_name: "{{ keyname }}"
